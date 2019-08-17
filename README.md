@@ -3,10 +3,22 @@ This package extract informations from your git repository to help you generate 
 Inspired by: https://github.com/smessmer/gitversion
 
 Usage:
-`yarn install gitversion`
+`yarn install @corteks/gitversion`
 
 ```typescript
-import gitVersion from 'gitVersion'
+import gitVersion from '@corteks/gitversion'
+
+gitVersion()
+    .then((informations) => {
+        console.log(informations)
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+```
+
+```Javascript
+const gitVersion = require('@corteks/gitversion').default
 
 gitVersion()
     .then((informations) => {
