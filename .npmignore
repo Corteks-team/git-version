@@ -1,0 +1,7 @@
+.vscode
+src
+.editorconfig
+.gitignore
+tsconfig.json
+tslint.json
+gitversion-*.tgz
