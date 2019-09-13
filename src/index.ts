@@ -23,9 +23,9 @@ export async function getCommitsSinceTag(lastTag: string | null): Promise<number
     });
 }
 
-export async function getCurrentCommitHash(): Promise<string | null> {
+export async function getCurrentCommitHash(short: boolean = false): Promise<string | null> {
     return new Promise((resolve, reject) => {
-        exec('git rev-parse HEAD', (err, stdout, stderr) => {
+        exec(`git rev-parse ${short ? '--short' : ''} HEAD`, (err, stdout, stderr) => {
             if (err) {
                 return resolve(null);
             }
@@ -65,12 +65,14 @@ export default async () => {
     const lastTag = await getLatestTag();
     const commitsSinceTag = await getCommitsSinceTag(lastTag);
     const currentCommitHash = await getCurrentCommitHash();
+    const currentCommitShortHash = await getCurrentCommitHash(true);
     const uncommitedChanges = (await Promise.all([hasUncommitedChanges(), hasUntrackedFiles()])).find((x) => x ? x : false);
     const currentBranch = await getCurrentBranch();
     return {
         COMMITS_SINCE_TAG: commitsSinceTag,
         CURRENT_BRANCH: currentBranch,
         CURRENT_COMMIT_ID: currentCommitHash,
+        CURRENT_COMMIT_SHORT_ID: currentCommitShortHash,
         LAST_TAG_NAME: lastTag,
         MODIFIED_SINCE_COMMIT: uncommitedChanges,
     };
