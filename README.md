@@ -40,3 +40,16 @@ This ouputs:
     MODIFIED_SINCE_COMMIT: true
 }
 ```
+
+There is also a default format directly accessible via:
+```typescipt
+import { getFormattedVersion } from '@corteks/gitversion';
+
+getFormattedVersion()
+    .then((version) => {
+        console.log(version);
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+```
