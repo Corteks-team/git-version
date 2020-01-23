@@ -1,0 +1,14 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@corteks/gitversion": "file:../..",
+    "@types/node": "^12.12.25",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
