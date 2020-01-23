@@ -17,7 +17,7 @@ gitVersion()
     })
 ```
 
-```Javascript
+```javascript
 const gitVersion = require('@corteks/gitversion').default
 
 gitVersion()
@@ -42,7 +42,7 @@ This ouputs:
 ```
 
 There is also a default format directly accessible via:
-```typescipt
+```typescript
 import { getFormattedVersion } from '@corteks/gitversion';
 
 getFormattedVersion()
