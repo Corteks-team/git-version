@@ -1,12 +1,12 @@
 {
   "name": "@corteks/gitversion",
   "version": "0.2.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^12.7.2",
-    "typescript": "^3.5.3"
+    "@types/node": "12.12.25",
+    "typescript": "3.7.5"
   },
   "scripts": {
     "build": "tsc",
