@@ -61,6 +61,21 @@ export async function getCurrentBranch(): Promise<string | null> {
     });
 }
 
+export async function getFormattedVersion(): Promise<string> {
+    const lastTag = await getLatestTag();
+    const commitsSinceTag = await getCommitsSinceTag(lastTag);
+    const currentCommitShortHash = await getCurrentCommitHash(true);
+    const uncommitedChanges = (await Promise.all([hasUncommitedChanges(), hasUntrackedFiles()])).find((x) => x ? x : false);
+
+    const version =
+        lastTag +
+        (commitsSinceTag ? '+' + commitsSinceTag : '') +
+        (uncommitedChanges ? '-modified' : '') +
+        '-' + currentCommitShortHash;
+
+    return version;
+}
+
 export default async () => {
     const lastTag = await getLatestTag();
     const commitsSinceTag = await getCommitsSinceTag(lastTag);
