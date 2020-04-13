@@ -3,7 +3,11 @@
   "version": "0.3.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
-  "license": "MIT",
+  "license": "GPL V3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Corteks-team/git-version.git"
+  },
   "devDependencies": {
     "@types/node": "12.12.25",
     "typescript": "3.7.5"
