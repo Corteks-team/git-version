@@ -68,7 +68,7 @@ export async function getFormattedVersion(): Promise<string> {
     const uncommitedChanges = (await Promise.all([hasUncommitedChanges(), hasUntrackedFiles()])).find((x) => x ? x : false);
 
     const version =
-        lastTag || '0.0.0' +
+        (lastTag || '0.0.0') +
         (commitsSinceTag ? '+' + commitsSinceTag : '') +
         (uncommitedChanges ? '-modified' : '') +
         '-' + currentCommitShortHash;
